@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCore.Infra", "EfCore.Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCore.MsDocs.Console", "EfCore.MsDocs.Console\EfCore.MsDocs.Console.csproj", "{53440DCB-4D7E-4B2D-B0E7-8F17DC4913A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark.EfCore", "Benchmark.EfCore\Benchmark.EfCore.csproj", "{86E97E4D-0AA7-430F-B3E1-79E17907C03A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{53440DCB-4D7E-4B2D-B0E7-8F17DC4913A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53440DCB-4D7E-4B2D-B0E7-8F17DC4913A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53440DCB-4D7E-4B2D-B0E7-8F17DC4913A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E97E4D-0AA7-430F-B3E1-79E17907C03A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E97E4D-0AA7-430F-B3E1-79E17907C03A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E97E4D-0AA7-430F-B3E1-79E17907C03A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E97E4D-0AA7-430F-B3E1-79E17907C03A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

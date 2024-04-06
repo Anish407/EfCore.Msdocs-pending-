@@ -1,5 +1,9 @@
 ﻿
+## Scaffold command
+~~~
+  dotnet ef dbcontext scaffold "Data Source=LAPTOP-computerName\SQLEXPRESS;Initial Catalog=AdventureWorks2016;Trusted_Connection=true;TrustServerCertificate=True"  Microsoft.EntityFrameworkCore.SqlServer -o Database
 
+~~~
 
 ### Use indexes properly
 
