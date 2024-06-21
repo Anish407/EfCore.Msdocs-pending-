@@ -18,3 +18,4 @@
 - https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax
 - https://learn.microsoft.com/en-us/sql/relational-databases/performance/monitor-and-tune-for-performance?view=sql-server-ver16 (monitor Sql server performance)
 - https://learn.microsoft.com/en-us/sql/relational-databases/performance/execution-plans?view=sql-server-ver16 -- query execution plan
+- https://blog.nashtechglobal.com/entity-framework-core-internals-query-pipelines/ -- view all previous blogs in this series
