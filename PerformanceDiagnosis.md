@@ -60,5 +60,5 @@ To get started on SQL Server, see the documentation on query execution plans. Th
 ### 5. Event counters (Pending: learn more)
 <p>The above sections focused on how to get information about your commands, and how these commands are executed in the database. In addition to that, EF exposes a set of event counters which provide more lower-level information on what's happening inside EF itself, and how your application is using it. These counters can be very useful for diagnosing specific performance issues and performance anomalies, such as query caching issues which cause constant recompilation, undisposed DbContext leaks, and others.</p>
 
-### 6. Benchmarking with EF Core 
+### 6. Benchmarking with EF Core (Pending: learn more)
 <p> When writing benchmarks, it's strongly recommended to use the well-known BenchmarkDotNet library, which handles many pitfalls users encounter when trying to write their own benchmarks: have you performed some warmup iterations? How many iterations does your benchmark actually run, and why?</p>
