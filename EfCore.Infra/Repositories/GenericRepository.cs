@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EfCore.Infra;
 
 
+
 public class GenericRepository<TEntity> where TEntity : class
 {
     protected readonly DbContext Context;

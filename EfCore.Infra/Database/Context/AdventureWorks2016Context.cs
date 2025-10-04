@@ -199,6 +199,20 @@ public partial class AdventureWorks2016Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Student>(entity =>
+        {
+            entity.HasKey(i => i.Id);
+            entity.HasOne(i => i.StudentDetails).WithOne(i => i.Student);
+
+        });
+
+        modelBuilder.Entity<StudentDetails>(entity =>
+        {
+            entity.HasKey(i => new { i.Id, i.StudentId });
+
+            entity.HasOne(i => i.Student).WithOne(i => i.StudentDetails);
+        });
+        
         modelBuilder.Entity<Address>(entity =>
         {
             entity.HasKey(e => e.AddressId).HasName("PK_Address_AddressID");
