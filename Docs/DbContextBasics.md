@@ -163,6 +163,20 @@ When EF Core detects an attempt to use a DbContext instance concurrently, you'll
 
 When concurrent access goes undetected, it can result in undefined behavior, application crashes and data corruption.
 
+### Asynchronous operation pitfalls
+Asynchronous methods enable EF Core to initiate operations that access the database in a non-blocking way. 
+But if a caller does not await the completion of one of these methods, and proceeds to perform other operations on the DbContext, the state of the DbContext can be, (and very likely will be) corrupted.
+
+### Implicitly sharing DbContext instances via dependency injection
+The AddDbContext extension method registers DbContext types with a scoped lifetime by default.
+
+This is safe from concurrent access issues in most ASP.NET Core applications because there is only one thread executing each client request at a given time, and because each request gets a separate dependency injection scope (and therefore a separate DbContext instance).
+
+> Any code that explicitly executes multiple threads in parallel should ensure that DbContext instances aren't ever accessed concurrently.
+
+> Using dependency injection, this can be achieved by either registering the context as scoped, and creating scopes (using IServiceScopeFactory) for each thread, or by registering the DbContext as transient (using the overload of AddDbContext which takes a ServiceLifetime parameter).
+
+
 ### Summary
 In summary, the DbContext is a crucial part of Entity Framework Core that manages the connection to the database and tracks changes to entities. It is important to manage the lifetime of the DbContext properly, especially in web applications, to ensure that resources are used efficiently and that the application performs well.    
 For more information, see the following resources:
