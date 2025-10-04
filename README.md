@@ -9,6 +9,7 @@
 ### Other links
 - <a href="./Docs/EfficientQuerying.md">EfficientQuerying</a>
 - <a href="./Docs/PerformanceDiagnosis.md">Performance Diagnosis</a>
+- [Ef Core DbContext](./Docs/DbContextBasics.md)
 
 
 ### References
