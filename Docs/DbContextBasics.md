@@ -72,7 +72,7 @@ The DbContext can be configured in several ways, including:
 - Using the `AddDbContext` method in ASP.NET Core applications
   - Using a factory method to create the DbContext
   - Using a connection string from configuration
-  - Using different database providers (e.g., SQL Server, SQLite, PostgreSQL, etc.)
+  - Using different database providers (e.g., SQL Server, SQLite, PostgresSQL, etc.)
   - Enabling lazy loading, change tracking, and other options
   - Configuring logging and diagnostics
 
@@ -101,7 +101,7 @@ The DbContext can be initialized in several ways, including:
 - Seeding the database with initial data using the `ModelBuilder` in the `OnModelCreating` method or using a custom initializer
 
 ### Use a DbContext factory
-In scenarios where you need to create DbContext instances manually, such as in background services or multi-threaded applications, consider using a DbContext factory. This approach helps manage the lifetime of DbContext instances and ensures they are created with the correct configuration.
+In scenarios where you need to create DbContext instances manually, such as in background services or multithreaded applications, consider using a DbContext factory. This approach helps manage the lifetime of DbContext instances and ensures they are created with the correct configuration.
 You can register a factory for your DbContext in the DI container like this:
 ```csharp
 services.AddDbContextFactory<YourDbContext>(options =>
@@ -153,6 +153,15 @@ This ensures that the correct options for the specific DbContext subtype are res
 
 > [!Note] 
 > Your DbContext does not need to be sealed, but sealing is best practice to do so for classes not designed to be inherited from.
+
+### Avoiding DbContext threading issues
+Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This includes both parallel execution of async queries and any explicit concurrent use from multiple threads. Therefore, always await async calls immediately, or use separate DbContext instances for operations that execute in parallel.
+
+When EF Core detects an attempt to use a DbContext instance concurrently, you'll see an InvalidOperationException with a message like this:
+
+> A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext, however instance members are not guaranteed to be thread safe.
+
+When concurrent access goes undetected, it can result in undefined behavior, application crashes and data corruption.
 
 ### Summary
 In summary, the DbContext is a crucial part of Entity Framework Core that manages the connection to the database and tracks changes to entities. It is important to manage the lifetime of the DbContext properly, especially in web applications, to ensure that resources are used efficiently and that the application performs well.    
