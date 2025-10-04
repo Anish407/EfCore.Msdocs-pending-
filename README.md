@@ -7,8 +7,8 @@
 ~~~
 
 ### Other links
-- <a href="./EfficientQuerying.md">EfficientQuerying</a>
-- <a href="./PerformanceDiagnosis.md">Performance Diagnosis</a>
+- <a href="./Docs/EfficientQuerying.md">EfficientQuerying</a>
+- <a href="./Docs/PerformanceDiagnosis.md">Performance Diagnosis</a>
 
 
 ### References
